@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { User } from '../types';
 import { useSearchParams } from 'next/navigation';
-
+import Image from 'next/image';
  
 const Profile = () => {
     const searchParams = useSearchParams();
@@ -33,7 +33,7 @@ const Profile = () => {
       <p>Username: {user.username}</p>
       <p>Номер телефону: {user.phoneNumber}</p>
       <p>Мова: {user.languageCode}</p>
-      {user.photoUrl && <img src={user.photoUrl} alt="Фото профілю" />}
+      {user.photoUrl && <Image src={user.photoUrl} alt="Фото профілю" width={100} height={100}/>}
     </div>
   );
 };

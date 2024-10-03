@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import { User } from '../types';
 
@@ -8,11 +8,10 @@ const Admin = () => {
   const [page, setPage] = useState(1);
   const limit = 10;
 
-  const fetchUsers = () => {
+  const fetchUsers = useCallback(() => {
     axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/users`, {
+      .get<User[]>(`${process.env.NEXT_PUBLIC_API_URL}/users`, {
         params: { page, limit, search },
-        withCredentials: true,
       })
       .then((response) => {
         setUsers(response.data);
@@ -20,11 +19,11 @@ const Admin = () => {
       .catch((error) => {
         console.error('Error fetching users', error);
       });
-  };
+  }, [page, limit, search]);
 
   useEffect(() => {
     fetchUsers();
-  }, [page, search]);
+  }, [fetchUsers]);
 
   return (
     <div>

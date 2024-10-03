@@ -7,7 +7,7 @@ import TelegramLoginButton from 'telegram-login-button';
 const Home = () => {
   const router = useRouter();
 
-  const handleTelegramResponse = (response: any) => {
+  const handleTelegramResponse = (response: unknown) => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL!}/auth/telegram/callback`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

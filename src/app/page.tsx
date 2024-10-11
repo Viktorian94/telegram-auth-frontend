@@ -4,7 +4,7 @@ import Script from "next/script";
 
 const Home = () => {
   const url = process.env.NEXT_PUBLIC_API_URL as string
-  if (!url) return;
+  // if (!url) return;
   
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black">

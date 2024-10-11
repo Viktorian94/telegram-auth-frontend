@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from 'react';
-import axios from 'axios';
-import { User } from '../types';
+import { useCallback, useEffect, useState } from "react";
+import axios from "axios";
+import { User } from "../types";
 
 const Admin = () => {
   const [users, setUsers] = useState<User[]>([]);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const limit = 10;
 
@@ -17,7 +17,7 @@ const Admin = () => {
         setUsers(response.data);
       })
       .catch((error) => {
-        console.error('Error fetching users', error);
+        console.error("Error fetching users", error);
       });
   }, [page, limit, search]);
 

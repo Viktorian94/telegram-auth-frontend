@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { User } from '../types';
-import { useSearchParams } from 'next/navigation';
-import Image from 'next/image';
- 
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { User } from "../types";
+import { useSearchParams } from "next/navigation";
+import Image from "next/image";
+
 const Profile = () => {
-    const searchParams = useSearchParams();
-    const userId = searchParams.get('userId');
+  const searchParams = useSearchParams();
+  const userId = searchParams.get("userId");
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const Profile = () => {
           setUser(response.data);
         })
         .catch((error) => {
-          console.error('Error fetching user', error);
+          console.error("Error fetching user", error);
         });
     }
   }, [userId]);
@@ -33,7 +33,14 @@ const Profile = () => {
       <p>Username: {user.username}</p>
       <p>Номер телефону: {user.phoneNumber}</p>
       <p>Мова: {user.languageCode}</p>
-      {user.photoUrl && <Image src={user.photoUrl} alt="Фото профілю" width={100} height={100}/>}
+      {user.photoUrl && (
+        <Image
+          src={user.photoUrl}
+          alt="Фото профілю"
+          width={100}
+          height={100}
+        />
+      )}
     </div>
   );
 };

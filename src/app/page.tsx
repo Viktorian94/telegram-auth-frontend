@@ -1,35 +1,21 @@
-'use client'
+"use client";
 
-import { useRouter } from 'next/navigation';
-import TelegramLoginButton from 'telegram-login-button';
-
+import Script from "next/script";
 
 const Home = () => {
-  const router = useRouter();
-
-  const handleTelegramResponse = (response: unknown) => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL!}/auth/telegram/callback`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(response),
-      credentials: 'include',
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        router.push(`/profile?userId=${data.id}`);
-      })
-      .catch((error) => {
-        console.error('Authorization error', error);
-      });
-  };
 
   return (
-    <div>
-      <h1>Авторизація через Telegram</h1>
-      <TelegramLoginButton
-        dataOnauth={handleTelegramResponse}
-        botName={process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME!}
-        buttonSize='large'
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black">
+      <h1 className="text-4xl font-bold mb-8">Авторизація через Telegram</h1>
+      <Script
+        async
+        src="https://telegram.org/js/telegram-widget.js?22"
+        data-telegram-login="knopers_bot"
+        data-size="large"
+        data-userpic="true"
+        data-request-access="write"
+        data-auth-url={`${process.env.NEXT_PUBLIC_API_URL}/auth/telegram/callback`}
+        strategy="afterInteractive"
       />
     </div>
   );

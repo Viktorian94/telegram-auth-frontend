@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+'use client'
+import { Suspense, useEffect, useState } from "react";
 import axios from "axios";
 import { User } from "../types";
-//import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Profile = () => {
-  //const searchParams = useSearchParams();
-  //const userId = searchParams.get("userId");
+  const searchParams = useSearchParams();
+  const userId = searchParams.get('userId')!;
   const router = useRouter();
-  const { userId } = router.query;
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -22,13 +21,15 @@ const Profile = () => {
         .catch((error) => {
           console.error("Error fetching user", error);
         });
+    } else {
+      router.push('/')
     }
-  }, [userId]);
+  }, [userId, router]);
 
   if (!user) return <div>Завантаження...</div>;
 
   const handleAdminClick = () => {
-    router.push(`/admin?userId=${user.id}`);
+    router.push(`/admin?userId=${userId}`);
   };
 
   return (
@@ -61,4 +62,10 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default function ProfileWithSuspense() {
+  return (
+    <Suspense fallback={<div>Завантаження профілю...</div>}>
+      <Profile />
+    </Suspense>
+  );
+}

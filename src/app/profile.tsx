@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { User } from "../types";
+import { User } from "./types";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 

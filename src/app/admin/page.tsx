@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { User } from "../types";
+import { useRouter, useSearchParams } from "next/navigation";
 
 
 const Admin = () => {
@@ -9,6 +10,9 @@ const Admin = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const limit = 10;
+  const searchParams = useSearchParams();
+  const userId = searchParams.get('userId');
+  const router = useRouter();
 
   const fetchUsers = useCallback(() => {
     axios
@@ -27,8 +31,12 @@ const Admin = () => {
     fetchUsers();
   }, [fetchUsers]);
 
+  const handleBackToProfile = () => {
+    router.push(`/profile?userId=${userId}`);
+  };
+
   return (
-    <div className="container mx-auto p-4">
+    <div className="container bg-gray-100 min-h-screen mx-auto p-4">
       <h1 className="text-3xl font-bold mb-4">Адмін-панель</h1>
       <input
         type="text"
@@ -58,13 +66,19 @@ const Admin = () => {
           ))}
         </tbody>
       </table>
-      <div>
+      <div className="flex flex-wrap justify-center mt-4">
         <button disabled={page <= 1} onClick={() => setPage(page - 1)}>
           Назад
         </button>
-        <span>Сторінка {page}</span>
+        <span className="p-4">Сторінка {page}</span>
         <button onClick={() => setPage(page + 1)}>Вперед</button>
       </div>
+      <button
+        onClick={handleBackToProfile}
+        className="mt-6 w-full px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+      >
+        Повернутися до профілю
+      </button>
     </div>
   );
 };

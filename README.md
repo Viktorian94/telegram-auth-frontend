@@ -1,36 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+            TELEGRAM AUTH APP
+Intstruction how to run app:
+ First open the site https://telegram-auth-frontend.vercel.app or bot https://t.me/knopers_bot. 
+ If you on website follow instruction: 
+1) Sign in using telegram ![image](https://github.com/user-attachments/assets/6e545174-7c8e-4eb5-9a57-eb7dcaccb1e6)
+2) After you`ll see your profile page ![image](https://github.com/user-attachments/assets/23884ae7-c2a7-4950-bf4d-1e3161ff0c7a)
+3) If you click ''Перейти на сторінку адміністратора'' button you`ll see admin panel, where you can find user by username, name, and lastname, and see information about the users.
+![image](https://github.com/user-attachments/assets/d6e35b0c-608d-41b1-9812-03bc21277099)
+You can go back to your profile.
+##To see your phone number, share contact to bot https://t.me/knopers_bot## ![image](https://github.com/user-attachments/assets/a3e00b2f-92d6-4a3e-9ad4-e8f20ec9b2e7)
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  If you use telegram to auth, before the above steps, you need :
+1) Open bot https://t.me/knopers_bot, and run command /start.
+2) Click the button ''Відкрити додаток'' ![image](https://github.com/user-attachments/assets/4f161352-0e67-4353-8520-6d05c31e9d39)
+3) Follow steps from website instruction

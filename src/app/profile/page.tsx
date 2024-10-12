@@ -39,7 +39,7 @@ const Profile = () => {
         {user.photoUrl && (
           <div className="flex justify-center mb-4">
             <img
-              src={user.photoUrl}
+              src={`${process.env.NEXT_PUBLIC_API_URL}/user-photo/${user.telegramId}`}
               alt="Фото профілю"
               width={100}
               height={100}

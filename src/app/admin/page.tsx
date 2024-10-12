@@ -1,5 +1,5 @@
 'use client'
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { User } from "../types";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -83,4 +83,10 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default function AdminWithSuspense() {
+  return (
+    <Suspense fallback={<div>Завантаження Сторінки...</div>}>
+      <Admin />
+    </Suspense>
+  );
+}

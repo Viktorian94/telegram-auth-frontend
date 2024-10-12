@@ -35,11 +35,29 @@ const Admin = () => {
     router.push(`/profile?userId=${userId}`);
   };
 
+  const filteredUsers = users
+  .filter(
+    (user) =>
+      user.username?.toLowerCase().includes(search.toLowerCase()) ||
+      user.firstName.toLowerCase().includes(search.toLowerCase()) ||
+      user.lastName?.toLowerCase().includes(search.toLowerCase())
+  )
+  .sort((a) => {
+    if (
+      a.username?.toLowerCase().includes(search.toLowerCase()) ||
+      a.firstName.toLowerCase().includes(search.toLowerCase()) ||
+      a.lastName?.toLowerCase().includes(search.toLowerCase())
+    ) {
+      return -1; 
+    }
+    return 0;
+  });
+
   return (
-    <div className="container bg-gray-100 min-h-screen mx-auto p-4">
+    <div className="container bg-gray-100 min-h-screen mx-auto p-4 text-black">
       <h1 className="text-3xl font-bold mb-4 text-black">Адмін-панель</h1>
       <input
-        className="w-max "
+        className="w-full mb-4 p-2 border rounded"
         type="text"
         placeholder="Пошук за username, ім'ям або прізвищем"
         value={search}
@@ -56,13 +74,17 @@ const Admin = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+        {filteredUsers.map((user) => (
             <tr key={user.id}>
-              <td className="py-2 px-4 border-b text-black">{user.telegramId}</td>
+              <td className="py-2 px-4 border-b text-black">
+                {user.telegramId}
+              </td>
               <td className="py-2 px-4 border-b text-black">{user.firstName}</td>
               <td className="py-2 px-4 border-b text-black">{user.lastName}</td>
               <td className="py-2 px-4 border-b text-black">{user.username}</td>
-              <td className="py-2 px-4 border-b text-black">{user.languageCode}</td>
+              <td className="py-2 px-4 border-b text-black">
+                {user.languageCode}
+              </td>
             </tr>
           ))}
         </tbody>

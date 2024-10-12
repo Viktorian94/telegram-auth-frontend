@@ -2,7 +2,7 @@
 import { Suspense, useEffect, useState } from "react";
 import axios from "axios";
 import { User } from "../types";
-import Image from "next/image";
+//import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const Profile = () => {
@@ -38,7 +38,7 @@ const Profile = () => {
         <h1 className="text-3xl md:text-3xl font-bold mb-4 text-center text-black">Особистий кабінет</h1>
         {user.photoUrl && (
           <div className="flex justify-center mb-4">
-            <Image
+            <img
               src={user.photoUrl}
               alt="Фото профілю"
               width={100}

@@ -4,8 +4,8 @@ import Script from "next/script";
 
 const Home = () => {
   const url = process.env.NEXT_PUBLIC_API_URL as string
-  if (!url) return alert('Упсс...');
-
+  // if (!url) return;
+  
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-black">
       <h1 className="text-4xl font-bold mb-8">Авторизація через Telegram</h1>

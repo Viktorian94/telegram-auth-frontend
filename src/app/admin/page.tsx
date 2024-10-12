@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
-import { User } from "./types";
+import { User } from "../types";
 
 
 const Admin = () => {

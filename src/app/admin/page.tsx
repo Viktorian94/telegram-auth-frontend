@@ -37,8 +37,9 @@ const Admin = () => {
 
   return (
     <div className="container bg-gray-100 min-h-screen mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Адмін-панель</h1>
+      <h1 className="text-3xl font-bold mb-4 text-black">Адмін-панель</h1>
       <input
+        className="w-max "
         type="text"
         placeholder="Пошук за username, ім'ям або прізвищем"
         value={search}
@@ -47,26 +48,26 @@ const Admin = () => {
       <table className="min-w-full bg-white shadow-md rounded-lg">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b">Telegram ID</th>
-            <th className="py-2 px-4 border-b">Ім`я</th>
-            <th className="py-2 px-4 border-b">Прізвище</th>
-            <th className="py-2 px-4 border-b">Username</th>
-            <th className="py-2 px-4 border-b">Мова</th>
+            <th className="py-2 px-4 border-b text-black">Telegram ID</th>
+            <th className="py-2 px-4 border-b text-black">Ім`я</th>
+            <th className="py-2 px-4 border-b text-black">Прізвище</th>
+            <th className="py-2 px-4 border-b text-black">Username</th>
+            <th className="py-2 px-4 border-b text-black">Мова</th>
           </tr>
         </thead>
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
-              <td className="py-2 px-4 border-b">{user.telegramId}</td>
-              <td className="py-2 px-4 border-b">{user.firstName}</td>
-              <td className="py-2 px-4 border-b">{user.lastName}</td>
-              <td className="py-2 px-4 border-b">{user.username}</td>
-              <td className="py-2 px-4 border-b">{user.languageCode}</td>
+              <td className="py-2 px-4 border-b text-black">{user.telegramId}</td>
+              <td className="py-2 px-4 border-b text-black">{user.firstName}</td>
+              <td className="py-2 px-4 border-b text-black">{user.lastName}</td>
+              <td className="py-2 px-4 border-b text-black">{user.username}</td>
+              <td className="py-2 px-4 border-b text-black">{user.languageCode}</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="flex flex-wrap justify-center mt-4">
+      <div className="flex flex-wrap justify-center mt-4 text-black">
         <button disabled={page <= 1} onClick={() => setPage(page - 1)}>
           Назад
         </button>

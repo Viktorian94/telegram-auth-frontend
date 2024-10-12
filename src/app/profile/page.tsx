@@ -35,7 +35,7 @@ const Profile = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white shadow-md rounded-lg p-6">
-        <h1 className="text-3xl md:text-3xl font-bold mb-4 text-center">Особистий кабінет</h1>
+        <h1 className="text-3xl md:text-3xl font-bold mb-4 text-center text-black">Особистий кабінет</h1>
         {user.photoUrl && (
           <div className="flex justify-center mb-4">
             <Image
